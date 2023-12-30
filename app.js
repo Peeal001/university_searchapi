@@ -23,11 +23,12 @@ function show(collArr){
 
 async function getUniversity(country){
     try{
-        let res = await axios.get(url+country);
-        return res.data;
+        let res = await fetch(url+country);
+        let result = await res.json();
+        return result;
     }
     catch(err){
         console.log("error : ", err);
-        return [];
+        
     }
 }
